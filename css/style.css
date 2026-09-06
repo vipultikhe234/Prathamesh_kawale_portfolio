@@ -1,0 +1,456 @@
+/* ==========================================================================
+   PRATHAMESH KAWALE — 3D ENGINEERING PORTFOLIO DESIGN SYSTEM
+   Theme: Precision Industrial CAD, Deep Space Obsidian & Cyber Cyan / Amber
+   ========================================================================== */
+
+:root {
+  --bg-obsidian: #080b11;
+  --bg-obsidian-900: #0d131f;
+  --bg-obsidian-950: #05070a;
+  
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+  --cyan-glow: rgba(6, 182, 212, 0.4);
+  
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-glow: rgba(245, 158, 11, 0.4);
+  
+  --emerald-400: #34d399;
+  --blue-500: #3b82f6;
+  
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset & Typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--bg-obsidian);
+  color: #f1f5f9;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #080b11;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+/* Utility Font Classes */
+.font-display { font-family: var(--font-display); }
+.font-mono { font-family: var(--font-mono); }
+.font-sans { font-family: var(--font-body); }
+
+/* Custom Background Grid Pattern */
+.cad-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+@media (max-width: 640px) {
+  .cad-grid-pattern {
+    background-size: 30px 30px;
+  }
+}
+
+/* Ambient Glow Orbs */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: 0.25;
+  transition: transform 0.5s ease-out;
+}
+.glow-orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #00f0ff, #0284c7);
+  top: -10%;
+  right: -5%;
+}
+.glow-orb-2 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, #ff8400, #ea580c);
+  top: 40%;
+  left: -10%;
+}
+.glow-orb-3 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #3b82f6, #06b6d4);
+  bottom: 0%;
+  right: 10%;
+}
+
+@media (max-width: 768px) {
+  .glow-orb {
+    filter: blur(80px);
+    opacity: 0.15;
+  }
+  .glow-orb-1 { width: 280px; height: 280px; }
+  .glow-orb-2 { width: 250px; height: 250px; }
+  .glow-orb-3 { width: 300px; height: 300px; }
+}
+
+/* Precision Crosshair Cursor (Desktop Only) */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+@media (pointer: fine) and (min-width: 1024px) {
+  .custom-cursor {
+    display: block;
+  }
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #00f0ff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px #00f0ff;
+}
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px dashed rgba(0, 240, 255, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, border-color 0.2s;
+  animation: spinSlow 12s linear infinite;
+}
+.cursor-cross-h {
+  width: 14px;
+  height: 1px;
+  background: rgba(0, 240, 255, 0.6);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.cursor-cross-v {
+  width: 1px;
+  height: 14px;
+  background: rgba(0, 240, 255, 0.6);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@keyframes spinSlow {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ==========================================================================
+   NAVBAR & HEADER ENHANCEMENTS
+   ========================================================================== */
+#mainHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(8, 11, 17, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#mainHeader.header-scrolled {
+  background: rgba(5, 7, 10, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.22);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.85), 0 0 20px rgba(0, 240, 255, 0.08);
+}
+
+.header-inner {
+  height: 4.25rem; /* 68px */
+  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  .header-inner {
+    height: 4.75rem; /* 76px */
+  }
+}
+
+#mainHeader.header-scrolled .header-inner {
+  height: 3.75rem; /* 60px */
+}
+
+@media (min-width: 640px) {
+  #mainHeader.header-scrolled .header-inner {
+    height: 4rem; /* 64px */
+  }
+}
+
+/* Desktop Nav Links */
+.nav-link {
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link.active {
+  background: rgba(0, 240, 255, 0.15) !important;
+  color: #00f0ff !important;
+  font-weight: 600;
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.18);
+}
+
+/* Animated Hamburger Icon */
+.hamburger-box {
+  width: 20px;
+  height: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger-line {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #f1f5f9;
+  border-radius: 9999px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
+#mobileMenuBtn.is-active .hamburger-line:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+  background: #00f0ff;
+}
+#mobileMenuBtn.is-active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+#mobileMenuBtn.is-active .hamburger-line:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+  background: #00f0ff;
+}
+
+/* Mobile Navigation Dropdown Menu */
+#mobileNav {
+  display: none;
+  background: rgba(5, 7, 10, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 240, 255, 0.1);
+  animation: mobileNavSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+#mobileNav.menu-open {
+  display: block;
+}
+
+@keyframes mobileNavSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-nav-link {
+  position: relative;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 12px;
+  padding: 0.65rem 0.9rem;
+  touch-action: manipulation;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background: rgba(0, 240, 255, 0.12);
+  color: #00f0ff;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+/* Global CAD Wireframe Overlay Mode */
+body.cad-wireframe-active {
+  filter: contrast(1.15) saturate(1.2);
+}
+body.cad-wireframe-active * {
+  outline: 1px dashed rgba(0, 240, 255, 0.2) !important;
+}
+
+/* 3D Lab Model Selection Tabs */
+.model-tab.active {
+  background: #00f0ff;
+  color: #080b11 !important;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.35);
+  border-color: #00f0ff;
+}
+.model-tab:not(.active) {
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.04);
+}
+.model-tab:not(.active):hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* View Mode Buttons (Solid, Wire, Xray, Stress) */
+.view-mode-btn.active {
+  background: #00f0ff;
+  color: #080b11 !important;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(0, 240, 255, 0.3);
+}
+
+/* Project Cards Hover Glow */
+.project-card {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+}
+@media (hover: hover) {
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -15px rgba(0, 240, 255, 0.15);
+  }
+}
+
+/* Toast Notifications */
+.toast {
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: rgba(13, 19, 31, 0.95);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: slideInRight 0.3s ease forwards;
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Touch and Mobile Form Optimization */
+input, textarea, select, button {
+  touch-action: manipulation;
+}
+
+/* Mobile responsive slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #00f0ff;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00f0ff;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #00f0ff;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px #00f0ff;
+}
+
+/* Print Optimization */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  header, footer, #hero, #lab3d, #projects, #skills, #experience, #education, #contact, .custom-cursor, #toastContainer {
+    display: none !important;
+  }
+  #resumeModal {
+    display: block !important;
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  #resumeModal > div {
+    max-width: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+  #printableResumeArea {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+  }
+}

@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Prathamesh Kawale | Mechanical & New Product Design Engineer Portfolio</title>
+  <meta name="description" content="Personal portfolio of Prathamesh Kawale — Mechanical & New Product Design (NPD) Engineer specializing in SolidWorks, CATIA V5, Creo, SPM development, vacuum forming, sheet metal, and 3D CAD modeling. Open to full-time engineering roles." />
+  <meta name="keywords" content="Prathamesh Kawale, Product Design Engineer, Mechanical Engineer, CAD Engineer, SolidWorks, CATIA V5, Creo, SPM Design, New Product Development, DFM, DFA, GD&T, Pune, Open to work" />
+  <meta name="author" content="Prathamesh Kawale" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Prathamesh Kawale | Mechanical & NPD Engineer Portfolio" />
+  <meta property="og:description" content="Explore mechanical product designs, 3D CAD models, SPM machinery, and engineering deliverables created by Prathamesh Kawale. Open to full-time roles." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Three.js and OrbitControls -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Vanilla Tilt -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Tailwind CSS CDN & Config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: {
+              DEFAULT: '#080b11',
+              900: '#0d131f',
+              950: '#05070a',
+            },
+            cyan: {
+              400: '#22d3ee',
+              500: '#06b6d4',
+            },
+            amber: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+            }
+          },
+          fontFamily: {
+            display: ['Outfit', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-obsidian text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
+
+  <!-- CAD Background Grid Canvas & Ambient Aura -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="cad-grid-pattern"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+  </div>
+
+  <!-- Custom Precision Crosshair Cursor -->
+  <div class="custom-cursor" id="customCursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-cross-h"></div>
+    <div class="cursor-cross-v"></div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-obsidian-950/85 backdrop-blur-xl border-b border-white/[0.08]">
+    <div class="header-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Brand / Logo & Identity -->
+      <a href="#hero" class="flex items-center gap-3 group shrink-0" id="brandLogo" aria-label="Prathamesh Kawale Home">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-cyan-500 via-blue-600 to-amber-500 p-0.5 shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-all duration-300">
+          <div class="w-full h-full bg-obsidian-950 rounded-[10px] flex items-center justify-center">
+            <span class="font-mono font-black text-sm sm:text-base bg-gradient-to-r from-cyan-400 to-amber-400 bg-clip-text text-transparent">PK</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-display font-bold text-sm sm:text-base lg:text-lg text-white tracking-tight group-hover:text-cyan-400 transition-colors">Prathamesh Kawale</span>
+            <span class="hidden md:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">OPEN TO WORK</span>
+          </div>
+          <span class="text-[10px] sm:text-[11px] text-slate-400 font-mono flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Mechanical & NPD Engineer</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Capsule (Visible on Desktop lg: >= 1024px) -->
+      <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-white/[0.04] border border-white/10 p-1 xl:p-1.5 rounded-full backdrop-blur-md shadow-inner" aria-label="Main Navigation">
+        <a href="#about" class="nav-link px-3 xl:px-3.5 py-1.5 text-xs font-medium text-slate-300 hover:text-white rounded-full transition-all">About</a>
+        <a href="#projects" class="nav-link px-3 xl:px-3.5 py-1.5 text-xs font-medium text-slate-300 hover:text-white rounded-full transition-all">Projects</a>
+        <a href="#lab3d" class="nav-link px-3 xl:px-3.5 py-1.5 text-xs font-medium text-slate-300 hover:text-white rounded-full transition-all flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
+          <span>3D Lab</span>
+        </a>
+        <a href="#skills" class="nav-link px-3 xl:px-3.5 py-1.5 text-xs font-medium text-slate-300 hover:text-white rounded-full transition-all">Skills</a>
+        <a href="#experience" class="nav-link px-3 xl:px-3.5 py-1.5 text-xs font-medium text-slate-300 hover:text-white rounded-full transition-all">Experience</a>
+        <a href="#education" class="nav-link px-3 xl:px-3.5 py-1.5 text-xs font-medium text-slate-300 hover:text-white rounded-full transition-all">Education</a>
+        <a href="#contact" class="nav-link px-3 xl:px-3.5 py-1.5 text-xs font-medium text-slate-300 hover:text-white rounded-full transition-all">Contact</a>
+      </nav>
+
+      <!-- Desktop Right Controls (Visible on Desktop lg: >= 1024px) -->
+      <div class="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0">
+        <!-- CAD Wireframe Toggle -->
+        <button id="cadModeToggle" class="px-2.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-amber-400 transition-all text-xs font-mono flex items-center gap-1.5" title="Toggle Global CAD Wireframe Blueprint" aria-label="Toggle CAD Wireframe View">
+          <i data-lucide="box" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span class="text-[11px] hidden xl:inline">CAD VIEW</span>
+        </button>
+
+        <!-- Resume Modal Button -->
+        <button id="viewResumeBtn" class="px-3.5 xl:px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 via-cyan-400 to-blue-600 hover:opacity-95 text-slate-950 font-bold text-xs tracking-wide uppercase shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 flex items-center gap-1.5 xl:gap-2">
+          <i data-lucide="file-text" class="w-3.5 h-3.5 text-slate-950"></i>
+          <span>Resume CV</span>
+        </button>
+      </div>
+
+      <!-- Mobile & Tablet Controls (< 1024px) -->
+      <div class="flex items-center gap-2 lg:hidden">
+        <!-- Quick Resume Pill Button -->
+        <button id="mobileHeaderResumeBtn" class="px-3 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-md shadow-cyan-500/25 transition-all" aria-label="Open Resume CV">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+          <span>CV</span>
+        </button>
+
+        <!-- Animated Hamburger Button -->
+        <button id="mobileMenuBtn" class="p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-all focus:outline-none focus:border-cyan-500/50" aria-label="Toggle Navigation Menu">
+          <div class="hamburger-box">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </div>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Dropdown Menu -->
+    <div id="mobileNav" class="lg:hidden max-h-[calc(100vh-5rem)] overflow-y-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1.5">
+        <a href="#about" class="mobile-nav-link text-sm font-medium text-slate-300 hover:text-cyan-400 py-2.5">
+          <span class="flex items-center gap-3">
+            <i data-lucide="user" class="w-4 h-4 text-cyan-400"></i>
+            <span>About Me</span>
+          </span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-600"></i>
+        </a>
+        <a href="#projects" class="mobile-nav-link text-sm font-medium text-slate-300 hover:text-cyan-400 py-2.5">
+          <span class="flex items-center gap-3">
+            <i data-lucide="folder-git-2" class="w-4 h-4 text-cyan-400"></i>
+            <span>My Engineering Projects</span>
+          </span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-600"></i>
+        </a>
+        <a href="#lab3d" class="mobile-nav-link text-sm font-medium text-amber-400 hover:text-amber-300 py-2.5">
+          <span class="flex items-center gap-3">
+            <i data-lucide="box" class="w-4 h-4 text-amber-400"></i>
+            <span>Interactive 3D CAD Lab</span>
+          </span>
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-500/20 text-amber-400 border border-amber-500/30">3D LIVE</span>
+        </a>
+        <a href="#skills" class="mobile-nav-link text-sm font-medium text-slate-300 hover:text-cyan-400 py-2.5">
+          <span class="flex items-center gap-3">
+            <i data-lucide="cpu" class="w-4 h-4 text-cyan-400"></i>
+            <span>Technical Skills & CAD Matrix</span>
+          </span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-600"></i>
+        </a>
+        <a href="#experience" class="mobile-nav-link text-sm font-medium text-slate-300 hover:text-cyan-400 py-2.5">
+          <span class="flex items-center gap-3">
+            <i data-lucide="briefcase" class="w-4 h-4 text-cyan-400"></i>
+            <span>Career & Industry Experience</span>
+          </span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-600"></i>
+        </a>
+        <a href="#education" class="mobile-nav-link text-sm font-medium text-slate-300 hover:text-cyan-400 py-2.5">
+          <span class="flex items-center gap-3">
+            <i data-lucide="graduation-cap" class="w-4 h-4 text-cyan-400"></i>
+            <span>Education & Credentials</span>
+          </span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-600"></i>
+        </a>
+        <a href="#contact" class="mobile-nav-link text-sm font-medium text-slate-300 hover:text-cyan-400 py-2.5">
+          <span class="flex items-center gap-3">
+            <i data-lucide="send" class="w-4 h-4 text-cyan-400"></i>
+            <span>Get in Touch / Hire Me</span>
+          </span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-600"></i>
+        </a>
+
+        <!-- Quick Mobile Tools Bar -->
+        <div class="pt-3 border-t border-white/10 grid grid-cols-2 gap-2.5">
+          <button id="mobileCadToggle" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 text-xs font-mono flex items-center justify-center gap-2">
+            <i data-lucide="grid" class="w-4 h-4 text-amber-400"></i>
+            <span>CAD Grid View</span>
+          </button>
+          <a href="tel:+917709714073" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 text-xs font-mono flex items-center justify-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
+            <span>Call Direct</span>
+          </a>
+        </div>
+
+        <!-- Full Mobile Resume Action Button -->
+        <div class="pt-2 pb-1">
+          <button id="mobileResumeBtn" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-cyan-400 to-blue-600 text-slate-950 font-bold text-xs tracking-wider uppercase text-center flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/25">
+            <i data-lucide="file-text" class="w-4 h-4 text-slate-950"></i>
+            <span>Open Full Engineering CV / Resume</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="relative z-10 pt-20 sm:pt-24">
+
+    <!-- HERO SECTION: Personal Introduction & Interactive 3D CAD Mechanism -->
+    <section id="hero" class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center py-12 sm:py-16 lg:py-20 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+          
+          <!-- Hero Left Content -->
+          <div class="lg:col-span-7 space-y-6 sm:space-y-8 z-10 text-left">
+            
+            <!-- Technical Status Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-400 font-mono text-[11px] sm:text-xs shadow-inner flex-wrap">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span class="font-semibold text-emerald-300">OPEN TO WORK & FULL-TIME HIRING</span>
+              <span class="text-slate-500 hidden sm:inline">|</span>
+              <span class="text-slate-300">PUNE, MAHARASHTRA</span>
+            </div>
+
+            <!-- Main Heading -->
+            <div class="space-y-3">
+              <h1 class="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.15]">
+                Hi, I'm <span class="bg-gradient-to-r from-cyan-400 via-teal-300 to-amber-400 bg-clip-text text-transparent">Prathamesh Kawale</span>
+              </h1>
+              <div class="min-h-[2.5rem] sm:min-h-[3rem] flex items-center text-base sm:text-xl lg:text-2xl font-mono text-slate-300">
+                <span class="text-cyan-400 mr-2">></span>
+                <span id="typewriterText" class="text-slate-200 border-r-2 border-amber-400 pr-1 font-semibold"></span>
+              </div>
+            </div>
+
+            <!-- Personal Bio Synopsis -->
+            <p class="text-sm sm:text-base lg:text-lg text-slate-400 max-w-2xl leading-relaxed">
+              Mechanical & New Product Design Engineer currently working at <strong class="text-slate-200">Induce Design</strong>. I turn engineering ideas into market-ready physical hardware through 3D parametric CAD modeling (SolidWorks, CATIA V5, Creo), 2D manufacturing drawings with GD&T, DFM/DFA optimization, Sheet Metal, and Vacuum Formed Enclosures.
+            </p>
+
+            <!-- Key Candidate Metrics Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 pt-1">
+              <div class="p-3 sm:p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
+                <div class="text-xl sm:text-2xl lg:text-3xl font-mono font-bold text-cyan-400" data-counter="4800">0</div>
+                <div class="text-[10px] sm:text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">RFID Capacity (Pkts)</div>
+              </div>
+              <div class="p-3 sm:p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
+                <div class="text-xl sm:text-2xl lg:text-3xl font-mono font-bold text-amber-400" data-counter="8.40" data-decimal="2">0.00</div>
+                <div class="text-[10px] sm:text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">B.E. Mech CGPA</div>
+              </div>
+              <div class="p-3 sm:p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
+                <div class="text-xl sm:text-2xl lg:text-3xl font-mono font-bold text-emerald-400" data-counter="5">0</div>
+                <div class="text-[10px] sm:text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">R&D Build Cycles</div>
+              </div>
+              <div class="p-3 sm:p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
+                <div class="text-xl sm:text-2xl lg:text-3xl font-mono font-bold text-blue-400" data-counter="100">0</div>
+                <div class="text-[10px] sm:text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">% On-Time CAD Delivery</div>
+              </div>
+            </div>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
+              <a href="#contact" class="px-5 sm:px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-cyan-400 to-blue-600 hover:opacity-95 text-slate-950 font-bold text-xs sm:text-sm tracking-wide shadow-xl shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>Hire Me / Get In Touch</span>
+              </a>
+              <button id="heroResumeBtn" class="px-5 sm:px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white font-semibold text-xs sm:text-sm hover:border-cyan-500/50 transition-all duration-300 flex items-center justify-center gap-2">
+                <i data-lucide="file-text" class="w-4 h-4 text-cyan-400"></i>
+                <span>View My Resume / CV</span>
+              </button>
+              <a href="#lab3d" class="px-4 py-3 rounded-xl text-slate-400 hover:text-white font-mono text-xs flex items-center justify-center gap-1.5 transition-colors">
+                <span>Explore 3D CAD Lab</span>
+                <i data-lucide="arrow-down" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Hero Right: Real-time 3D Mechanical Viewport -->
+          <div class="lg:col-span-5 relative mt-4 lg:mt-0">
+            <div class="relative w-full aspect-[4/3] sm:aspect-square max-w-[480px] mx-auto rounded-3xl p-1 bg-gradient-to-b from-cyan-500/30 via-white/10 to-amber-500/20 shadow-2xl shadow-cyan-500/10">
+              
+              <!-- HUD Frame Overlay -->
+              <div class="absolute inset-0 z-20 pointer-events-none rounded-3xl p-3 sm:p-4 flex flex-col justify-between">
+                <div class="flex items-center justify-between font-mono text-[9px] sm:text-[10px] text-cyan-400 bg-obsidian-900/80 px-2.5 sm:px-3 py-1.5 rounded-lg border border-cyan-500/30 backdrop-blur-md">
+                  <span class="flex items-center gap-1">
+                    <i data-lucide="activity" class="w-3 h-3 text-cyan-400 animate-spin"></i>
+                    REAL-TIME 3D CAD VIEWPORT
+                  </span>
+                  <span id="heroCoordinates" class="hidden sm:inline">X: 0.00 Y: 0.00 Z: 1.00</span>
+                </div>
+
+                <div class="flex items-center justify-between font-mono text-[9px] sm:text-[10px] text-slate-400 bg-obsidian-900/80 px-2.5 sm:px-3 py-1.5 rounded-lg border border-white/10 backdrop-blur-md">
+                  <span>ORBIT: DRAG TO ROTATE</span>
+                  <span class="text-amber-400 font-bold" id="heroPolyCount">32.4K POLYS</span>
+                </div>
+              </div>
+
+              <!-- 3D Canvas Container -->
+              <div class="w-full h-full bg-obsidian-950 rounded-[22px] overflow-hidden relative min-h-[280px]" id="hero3dContainer">
+                <canvas id="heroCanvas" class="w-full h-full cursor-grab active:cursor-grabbing"></canvas>
+                
+                <!-- Floating Control Pills -->
+                <div class="absolute bottom-12 sm:bottom-14 right-3 sm:right-4 z-20 flex flex-col gap-2">
+                  <button id="heroExplodeBtn" class="p-2 sm:p-2.5 rounded-lg bg-obsidian-900/90 border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-all text-xs font-mono shadow-lg" title="Explode Mechanical Assembly" aria-label="Explode Assembly">
+                    <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                  </button>
+                  <button id="heroWireframeBtn" class="p-2 sm:p-2.5 rounded-lg bg-obsidian-900/90 border border-amber-500/40 text-amber-400 hover:bg-amber-500 hover:text-black transition-all text-xs font-mono shadow-lg" title="Toggle Shaded / Wireframe" aria-label="Toggle Wireframe">
+                    <i data-lucide="grid" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: ABOUT ME & PROFESSIONAL BACKGROUND -->
+    <section id="about" class="py-16 sm:py-24 relative border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="space-y-2 mb-12 sm:mb-16">
+          <div class="font-mono text-xs text-cyan-400 tracking-widest uppercase flex items-center gap-2">
+            <i data-lucide="user" class="w-4 h-4"></i>
+            <span>About Me & Career Profile</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
+            Engineering Precision, Theory & <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-amber-400">Practical CAD Execution</span>.
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+          
+          <!-- Left: Personal Story & Objective -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-white/[0.05] to-white/[0.02] border border-white/10 backdrop-blur-xl space-y-6 relative overflow-hidden group">
+              <div class="absolute top-0 right-0 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-all"></div>
+              
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center border border-cyan-500/30 shrink-0">
+                  <i data-lucide="target" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg sm:text-xl font-display font-bold text-white">My Career Objective</h3>
+                  <p class="text-xs font-mono text-slate-400">What I Aim to Achieve in My Next Role</p>
+                </div>
+              </div>
+
+              <blockquote class="text-sm sm:text-base text-slate-300 leading-relaxed italic border-l-2 border-cyan-400 pl-4 py-1">
+                "To work in an innovative, design-driven engineering firm where I can apply my mechanical engineering fundamentals, 3D CAD proficiency, and hands-on prototyping skills to contribute directly to product excellence, company growth, and breakthrough physical hardware."
+              </blockquote>
+
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                As a Mechanical Product Designer at <strong class="text-white">Induce Design (Pune)</strong>, I have worked across the entire New Product Development (NPD) lifecycle: taking initial industrial design concepts and napkin sketches through parametric 3D modeling, GD&T 2D manufacturing drawings, Bill of Materials (BOM), tolerance stack-up checks, and vendor-ready manufacturing packages for sheet metal, vacuum forming, and machined parts.
+              </p>
+
+              <!-- What I Bring to Your Team Grid -->
+              <div class="space-y-3 pt-4 border-t border-white/10">
+                <h4 class="font-mono text-xs font-bold text-slate-300 uppercase tracking-wider">What I Bring to Your Engineering Team:</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 font-mono text-xs">
+                  <div class="flex items-start gap-2.5 text-slate-300">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                    <span>Design for Manufacturing & Assembly (DFM / DFA)</span>
+                  </div>
+                  <div class="flex items-start gap-2.5 text-slate-300">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                    <span>Special Purpose Machine (SPM) Prototyping</span>
+                  </div>
+                  <div class="flex items-start gap-2.5 text-slate-300">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                    <span>Plastic Defect Analysis & Vacuum Forming (HIPS)</span>
+                  </div>
+                  <div class="flex items-start gap-2.5 text-slate-300">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                    <span>Precision Sheet Metal & Enclosure Design</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right: Core Strengths & Why Hire Me -->
+          <div class="lg:col-span-5 space-y-4">
+            
+            <div class="p-5 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-cyan-500/40 transition-all flex items-start gap-4">
+              <div class="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center border border-cyan-500/20 shrink-0">
+                <i data-lucide="cpu" class="w-5 sm:w-6 h-5 sm:h-6"></i>
+              </div>
+              <div class="space-y-1">
+                <h4 class="text-sm sm:text-base font-bold text-white">Electro-Mechanical Packaging</h4>
+                <p class="text-xs text-slate-400 leading-relaxed">Experienced in packaging RFID antennas, readers, PoE switches, SMPS units, proximity sensors, and electric motors into clean, serviceable, noise-isolated enclosures.</p>
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-500/40 transition-all flex items-start gap-4">
+              <div class="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20 shrink-0">
+                <i data-lucide="shield-check" class="w-5 sm:w-6 h-5 sm:h-6"></i>
+              </div>
+              <div class="space-y-1">
+                <h4 class="text-sm sm:text-base font-bold text-white">Hands-on Prototyping & R&D</h4>
+                <p class="text-xs text-slate-400 leading-relaxed">Solved critical RFID signal spill and drawer cross-reading issues through 5 hands-on testing & shielding build cycles in diamond inventory machines.</p>
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-emerald-500/40 transition-all flex items-start gap-4">
+              <div class="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-500/20 shrink-0">
+                <i data-lucide="presentation" class="w-5 sm:w-6 h-5 sm:h-6"></i>
+              </div>
+              <div class="space-y-1">
+                <h4 class="text-sm sm:text-base font-bold text-white">Effective Communication & Review</h4>
+                <p class="text-xs text-slate-400 leading-relaxed">National PPT Presentation Winner (BLITZKRIEG 2019). Highly comfortable presenting 3D CAD data, technical reviews, and engineering design proposals.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: INTERACTIVE 3D CAD LAB / WORKBENCH -->
+    <section id="lab3d" class="py-16 sm:py-24 relative bg-gradient-to-b from-transparent via-obsidian-900/60 to-transparent border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Lab Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-6">
+          <div class="space-y-2">
+            <div class="font-mono text-xs text-amber-400 tracking-widest uppercase flex items-center gap-2">
+              <i data-lucide="wrench" class="w-4 h-4"></i>
+              <span>Interactive 3D Workbench</span>
+            </div>
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
+              My 3D Product <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Inspection Lab</span>
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-400 max-w-xl">
+              Inspect 3D models I engineered in real time. Rotate the camera, drag the exploded view slider to see internal subassemblies, and toggle CAD wireframe & FEA stress modes.
+            </p>
+          </div>
+
+          <!-- Model Selector Tabs -->
+          <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-1.5 sm:gap-2 p-1.5 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md w-full md:w-auto" id="modelSelectorGroup">
+            <button class="model-tab active px-3 py-2 rounded-xl text-xs font-mono font-medium transition-all flex items-center justify-center sm:justify-start gap-1.5" data-model="rfid_storage">
+              <i data-lucide="server" class="w-3.5 h-3.5"></i>
+              <span>8-Drawer RFID</span>
+            </button>
+            <button class="model-tab px-3 py-2 rounded-xl text-xs font-mono font-medium transition-all flex items-center justify-center sm:justify-start gap-1.5" data-model="aed_enclosure">
+              <i data-lucide="heart-pulse" class="w-3.5 h-3.5"></i>
+              <span>AED Enclosure</span>
+            </button>
+            <button class="model-tab px-3 py-2 rounded-xl text-xs font-mono font-medium transition-all flex items-center justify-center sm:justify-start gap-1.5" data-model="rfid_desktop">
+              <i data-lucide="monitor" class="w-3.5 h-3.5"></i>
+              <span>Desktop Unit</span>
+            </button>
+            <button class="model-tab px-3 py-2 rounded-xl text-xs font-mono font-medium transition-all flex items-center justify-center sm:justify-start gap-1.5" data-model="suspension_spm">
+              <i data-lucide="truck" class="w-3.5 h-3.5"></i>
+              <span>Suspension SPM</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3D Lab Main Viewport Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+          
+          <!-- 3D Interactive Canvas Box -->
+          <div class="lg:col-span-8 rounded-3xl bg-obsidian-950 border border-white/15 p-2 shadow-2xl relative overflow-hidden group">
+            
+            <!-- Top HUD Bar -->
+            <div class="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none gap-2">
+              <div class="flex items-center gap-1.5 sm:gap-2 bg-obsidian-900/90 border border-white/10 px-2.5 sm:px-3 py-1.5 rounded-xl font-mono text-[10px] sm:text-xs text-cyan-400 backdrop-blur-md truncate">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shrink-0"></span>
+                <span id="labModelTitle" class="truncate">8-DRAWER RFID DIAMOND STORAGE MACHINE</span>
+              </div>
+              <div class="bg-obsidian-900/90 border border-white/10 px-2.5 sm:px-3 py-1.5 rounded-xl font-mono text-[9px] sm:text-[11px] text-amber-400 backdrop-blur-md shrink-0">
+                <span id="labMaterialBadge">SHEET METAL & RF SHIELDING</span>
+              </div>
+            </div>
+
+            <!-- 3D Canvas -->
+            <div class="w-full h-[340px] sm:h-[480px] lg:h-[540px] rounded-2xl relative overflow-hidden bg-radial from-slate-900 to-obsidian-950" id="lab3dCanvasContainer">
+              <canvas id="labCanvas" class="w-full h-full cursor-grab active:cursor-grabbing"></canvas>
+
+              <!-- Floating Hotspot Info Box -->
+              <div id="hotspotCallout" class="absolute hidden bottom-16 sm:bottom-20 left-4 sm:left-6 right-4 sm:right-auto sm:max-w-xs p-3.5 rounded-xl bg-obsidian-900/95 border border-cyan-500/50 shadow-2xl backdrop-blur-xl transition-all z-30">
+                <div class="flex items-center justify-between text-cyan-400 font-mono text-xs font-bold mb-1">
+                  <span id="hotspotTitle">Component Highlight</span>
+                  <button id="closeHotspotBtn" class="text-slate-400 hover:text-white p-1">&times;</button>
+                </div>
+                <p id="hotspotDesc" class="text-xs text-slate-300 leading-relaxed"></p>
+              </div>
+
+            </div>
+
+            <!-- Bottom Controls & Shaders Toolbar -->
+            <div class="mt-2 p-2.5 sm:p-3 rounded-2xl bg-white/[0.03] border border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
+              
+              <!-- Exploded View Slider -->
+              <div class="flex items-center gap-2 sm:gap-3 flex-1 min-w-[180px]">
+                <span class="font-mono text-xs text-slate-400 flex items-center gap-1 shrink-0">
+                  <i data-lucide="split" class="w-3.5 h-3.5 text-cyan-400"></i>
+                  <span class="hidden xs:inline">Exploded:</span>
+                </span>
+                <input type="range" id="explodeSlider" min="0" max="100" value="0" class="flex-1 accent-cyan-400 h-1.5 bg-white/10 rounded-lg cursor-pointer" aria-label="Exploded View Progress" />
+                <span id="explodePercent" class="font-mono text-xs text-cyan-400 w-8 sm:w-10 text-right shrink-0">0%</span>
+              </div>
+
+              <!-- View Modes Buttons -->
+              <div class="flex items-center justify-between sm:justify-end gap-1 sm:gap-1.5 font-mono text-xs overflow-x-auto">
+                <button id="btnRenderSolid" class="view-mode-btn active px-2.5 sm:px-3 py-1.5 rounded-lg bg-cyan-500 text-black font-semibold transition-all">Solid</button>
+                <button id="btnRenderWire" class="view-mode-btn px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 transition-all">Wire</button>
+                <button id="btnRenderXray" class="view-mode-btn px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 transition-all">X-Ray</button>
+                <button id="btnRenderStress" class="view-mode-btn px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 transition-all">FEA</button>
+                <button id="btnResetView" class="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-all shrink-0" title="Reset Camera" aria-label="Reset Camera">
+                  <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Lab Right: Dynamic Specification & Engineering Card -->
+          <div class="lg:col-span-4 space-y-4 sm:space-y-5" id="labDetailsPanel">
+            
+            <div class="p-5 sm:p-6 rounded-3xl bg-white/[0.04] border border-white/10 backdrop-blur-xl space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs text-cyan-400 font-semibold" id="labProjectCode">PRJ-NPD-01</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">PRODUCTION READY</span>
+              </div>
+
+              <h3 class="text-lg sm:text-xl font-display font-bold text-white" id="labProjectTitle">8-Drawer RFID Diamond Tracking Machine</h3>
+              <p class="text-xs text-slate-300 leading-relaxed" id="labProjectSummary">
+                Designed for high-security inventory tracking. Features an 8-drawer mechanical interlocking system with central locking to prevent simultaneous drawer opening (anti-tilt). Solved severe RF spill through internal shield baffles and tuned antenna positioning.
+              </p>
+
+              <!-- Technical Specs Breakdown Table -->
+              <div class="space-y-2 pt-2 border-t border-white/10 font-mono text-xs">
+                <div class="flex justify-between py-1 border-b border-white/5">
+                  <span class="text-slate-400">CAD Software</span>
+                  <span class="text-white font-medium" id="labSpecCad">SolidWorks / CATIA V5</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-white/5">
+                  <span class="text-slate-400">Primary Material</span>
+                  <span class="text-white font-medium" id="labSpecMaterial">CRCA Sheet Metal + RF Shield Coating</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-white/5">
+                  <span class="text-slate-400">Manufacturing Process</span>
+                  <span class="text-white font-medium text-right" id="labSpecMfg">Laser Cutting, CNC Bending</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-white/5">
+                  <span class="text-slate-400">Capacity / Output</span>
+                  <span class="text-white font-medium" id="labSpecCapacity">16 Compartments (~4,800 Pkts)</span>
+                </div>
+                <div class="flex justify-between py-1">
+                  <span class="text-slate-400">Electronics</span>
+                  <span class="text-white font-medium text-right" id="labSpecElectronics">RFID, Proximity, PoE, SMPS</span>
+                </div>
+              </div>
+
+              <!-- Action button to open full project modal -->
+              <button id="openFullProjectModalBtn" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20">
+                <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+                <span>Open Engineering Case Study & Drawings</span>
+              </button>
+
+            </div>
+
+            <!-- Prototyping Insights Card -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-amber-500/5 border border-amber-500/20 space-y-2">
+              <div class="flex items-center gap-2 text-amber-400 font-mono text-xs font-bold">
+                <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                <span>My R&D Problem Solving Contribution</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed" id="labChallengeText">
+                Addressed severe RFID cross-reading between adjacent drawers by custom fabricating aluminum Faraday shielding chambers and optimizing antenna beam angles across 2 major mechanical redesign cycles.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: FEATURED ENGINEERING PROJECTS -->
+    <section id="projects" class="py-16 sm:py-24 relative border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4 sm:gap-6">
+          <div class="space-y-2">
+            <div class="font-mono text-xs text-cyan-400 tracking-widest uppercase flex items-center gap-2">
+              <i data-lucide="folder-git-2" class="w-4 h-4"></i>
+              <span>My Portfolio of Work</span>
+            </div>
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
+              Featured <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-amber-400">Engineering Projects</span>
+            </h2>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 max-w-md">
+            Commercial NPD projects I delivered at Induce Design alongside my academic engineering innovations.
+          </p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          
+          <!-- Project Card 1: 8-Drawer RFID Machine -->
+          <div class="project-card rounded-3xl bg-white/[0.03] border border-white/10 hover:border-cyan-500/50 transition-all duration-300 overflow-hidden flex flex-col group" data-project-id="rfid_storage">
+            <div class="relative h-48 sm:h-56 overflow-hidden bg-slate-950">
+              <img src="assets/images/rfid_storage.jpg" alt="8-Drawer RFID Diamond Storage Machine CAD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent"></div>
+              <div class="absolute top-4 left-4">
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold bg-cyan-500/90 text-black shadow-lg">INDUCE DESIGN</span>
+              </div>
+              <div class="absolute bottom-3 right-4 font-mono text-[10px] text-cyan-400 bg-obsidian-900/80 px-2 py-1 rounded border border-cyan-500/30">
+                CAPACITY: 4,800 PKTS
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="text-lg sm:text-xl font-display font-bold text-white group-hover:text-cyan-400 transition-colors">
+                  8-Drawer RFID Diamond Packet Storage Machine
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 line-clamp-3 leading-relaxed">
+                  Engineered an 8-drawer secure diamond packet identification machine with mechanical anti-tilt central interlocking, antenna isolation chambers, and integrated PoE control electronics.
+                </p>
+              </div>
+
+              <div class="space-y-3 pt-3 border-t border-white/10">
+                <div class="flex flex-wrap gap-1.5 font-mono text-[10px] sm:text-[11px]">
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">SolidWorks</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Sheet Metal</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">RF Shielding</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Central Lock</span>
+                </div>
+
+                <button class="project-details-btn w-full py-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 text-cyan-300 hover:text-cyan-200 border border-cyan-500/30 text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="maximize" class="w-3.5 h-3.5"></i>
+                  <span>Inspect My Drawings & BOM</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 2: RFID Desktop Unit -->
+          <div class="project-card rounded-3xl bg-white/[0.03] border border-white/10 hover:border-cyan-500/50 transition-all duration-300 overflow-hidden flex flex-col group" data-project-id="rfid_desktop">
+            <div class="relative h-48 sm:h-56 overflow-hidden bg-slate-950">
+              <img src="assets/images/rfid_desktop.jpg" alt="RFID Desktop Unit FRP Enclosure" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent"></div>
+              <div class="absolute top-4 left-4">
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold bg-cyan-500/90 text-black shadow-lg">INDUCE DESIGN</span>
+              </div>
+              <div class="absolute bottom-3 right-4 font-mono text-[10px] text-cyan-400 bg-obsidian-900/80 px-2 py-1 rounded border border-cyan-500/30">
+                5 R&D ITERATIONS
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="text-lg sm:text-xl font-display font-bold text-white group-hover:text-cyan-400 transition-colors">
+                  RFID Desktop Unit with FRP Composite Enclosure
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 line-clamp-3 leading-relaxed">
+                  Developed an ergonomic desktop RFID scanner featuring an FRP outer base, internal aluminum C-bends, and a gas spring-assisted viewing door with custom pivot stoppers.
+                </p>
+              </div>
+
+              <div class="space-y-3 pt-3 border-t border-white/10">
+                <div class="flex flex-wrap gap-1.5 font-mono text-[10px] sm:text-[11px]">
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">FRP Enclosure</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Gas Spring Mech</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Aluminium C-Bends</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">CATIA V5</span>
+                </div>
+
+                <button class="project-details-btn w-full py-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 text-cyan-300 hover:text-cyan-200 border border-cyan-500/30 text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="maximize" class="w-3.5 h-3.5"></i>
+                  <span>Inspect My Drawings & BOM</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 3: AED Medical Enclosure -->
+          <div class="project-card rounded-3xl bg-white/[0.03] border border-white/10 hover:border-cyan-500/50 transition-all duration-300 overflow-hidden flex flex-col group" data-project-id="aed_enclosure">
+            <div class="relative h-48 sm:h-56 overflow-hidden bg-slate-950">
+              <img src="assets/images/aed_enclosure.jpg" alt="Automated External Defibrillator Enclosure" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent"></div>
+              <div class="absolute top-4 left-4">
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold bg-amber-500/90 text-black shadow-lg">MEDICAL DEVICE</span>
+              </div>
+              <div class="absolute bottom-3 right-4 font-mono text-[10px] text-amber-400 bg-obsidian-900/80 px-2 py-1 rounded border border-amber-500/30">
+                VACUUM FORMED HIPS
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="text-lg sm:text-xl font-display font-bold text-white group-hover:text-cyan-400 transition-colors">
+                  Automated External Defibrillator (AED) Enclosure
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 line-clamp-3 leading-relaxed">
+                  Designed complete outer body enclosure for an AED medical device in High Impact Polystyrene (HIPS), optimized for vacuum forming with electronic chassis mounting and aesthetic rendering.
+                </p>
+              </div>
+
+              <div class="space-y-3 pt-3 border-t border-white/10">
+                <div class="flex flex-wrap gap-1.5 font-mono text-[10px] sm:text-[11px]">
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">HIPS Plastic</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Vacuum Forming</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Creo / SolidWorks</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Keyshot</span>
+                </div>
+
+                <button class="project-details-btn w-full py-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 text-cyan-300 hover:text-cyan-200 border border-cyan-500/30 text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="maximize" class="w-3.5 h-3.5"></i>
+                  <span>Inspect My Drawings & BOM</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 4: TATA Hendrickson Suspension Scale Model -->
+          <div class="project-card rounded-3xl bg-white/[0.03] border border-white/10 hover:border-cyan-500/50 transition-all duration-300 overflow-hidden flex flex-col group" data-project-id="suspension_spm">
+            <div class="relative h-48 sm:h-56 overflow-hidden bg-slate-950 flex items-center justify-center">
+              <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-950/40 via-slate-900 to-obsidian-950 p-6 relative">
+                <div class="cad-grid-pattern opacity-40"></div>
+                <svg class="w-40 sm:w-48 h-28 sm:h-32 text-cyan-400 group-hover:scale-110 transition-transform duration-500" viewBox="0 0 200 120" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="20" y="50" width="160" height="20" rx="4" stroke="currentColor" fill="rgba(0, 240, 255, 0.05)" />
+                  <path d="M 30 50 Q 100 20 170 50" stroke="#ff8400" stroke-width="2" />
+                  <path d="M 40 50 Q 100 28 160 50" stroke="#ff8400" stroke-width="1.5" />
+                  <circle cx="50" cy="85" r="18" stroke="currentColor" stroke-dasharray="3,3" />
+                  <circle cx="150" cy="85" r="18" stroke="currentColor" stroke-dasharray="3,3" />
+                  <line x1="50" y1="70" x2="50" y2="85" stroke="currentColor" />
+                  <line x1="150" y1="70" x2="150" y2="85" stroke="currentColor" />
+                  <line x1="10" y1="110" x2="190" y2="110" stroke="#475569" stroke-width="1" />
+                </svg>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent"></div>
+              <div class="absolute top-4 left-4">
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold bg-blue-500/90 text-white shadow-lg">AUTOMOTIVE / SCALE SPM</span>
+              </div>
+              <div class="absolute bottom-3 right-4 font-mono text-[10px] text-blue-400 bg-obsidian-900/80 px-2 py-1 rounded border border-blue-500/30">
+                TOOLING VALIDATION
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="text-lg sm:text-xl font-display font-bold text-white group-hover:text-cyan-400 transition-colors">
+                  TATA - Hendrickson Suspension Scale Model
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 line-clamp-3 leading-relaxed">
+                  Detailed scale modeling of heavy vehicle chassis, axle assemblies, leaf spring packs, and wheel hubs according to client tooling standards and rapid iteration feedback.
+                </p>
+              </div>
+
+              <div class="space-y-3 pt-3 border-t border-white/10">
+                <div class="flex flex-wrap gap-1.5 font-mono text-[10px] sm:text-[11px]">
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Chassis & Axle</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Leaf Springs</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Tooling Tolerance</span>
+                </div>
+
+                <button class="project-details-btn w-full py-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 text-cyan-300 hover:text-cyan-200 border border-cyan-500/30 text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="maximize" class="w-3.5 h-3.5"></i>
+                  <span>Inspect My Drawings & BOM</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 5: Oil Cake Cutter SPM (Degree Final Project) -->
+          <div class="project-card rounded-3xl bg-white/[0.03] border border-white/10 hover:border-cyan-500/50 transition-all duration-300 overflow-hidden flex flex-col group md:col-span-2 lg:col-span-2" data-project-id="oil_cutter">
+            <div class="relative h-48 sm:h-56 overflow-hidden bg-slate-950 flex items-center justify-center">
+              <div class="w-full h-full flex items-center justify-around bg-gradient-to-r from-amber-950/30 via-slate-900 to-obsidian-950 p-4 sm:p-6 relative">
+                <div class="cad-grid-pattern opacity-40"></div>
+                <svg class="w-48 sm:w-64 h-28 sm:h-36 text-amber-400 group-hover:scale-105 transition-transform duration-500" viewBox="0 0 240 140" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <polygon points="40,20 120,20 100,60 60,60" stroke="#00f0ff" fill="rgba(0,240,255,0.05)" />
+                  <circle cx="70" cy="85" r="22" stroke="currentColor" stroke-dasharray="4,4" />
+                  <circle cx="110" cy="85" r="22" stroke="currentColor" stroke-dasharray="4,4" />
+                  <circle cx="70" cy="85" r="8" fill="currentColor" />
+                  <circle cx="110" cy="85" r="8" fill="currentColor" />
+                  <rect x="20" y="100" width="180" height="30" rx="4" stroke="#e2e8f0" stroke-width="1.5" />
+                  <rect x="150" y="70" width="45" height="40" rx="3" stroke="#ff8400" fill="rgba(255,132,0,0.1)" />
+                  <line x1="110" y1="85" x2="150" y2="85" stroke="#10b981" stroke-dasharray="2,2" />
+                </svg>
+                <div class="hidden sm:block text-right font-mono space-y-1">
+                  <div class="text-xs text-amber-400 font-bold">2HP SINGLE PHASE POWER</div>
+                  <div class="text-[11px] text-slate-400">DUAL SHAFT ROTOR</div>
+                  <div class="text-[11px] text-cyan-400">TUNGSTEN CARBIDE CUTTER</div>
+                </div>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent"></div>
+              <div class="absolute top-4 left-4">
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold bg-emerald-500/90 text-black shadow-lg">DEGREE CAPSTONE SPM</span>
+              </div>
+              <div class="absolute bottom-3 right-4 font-mono text-[10px] text-emerald-400 bg-obsidian-900/80 px-2 py-1 rounded border border-emerald-500/30">
+                FABRICATION COMPLETE
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="text-lg sm:text-xl font-display font-bold text-white group-hover:text-cyan-400 transition-colors">
+                  Design & Fabrication of Industrial Oil Cake Cutter Machine
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Investigated and solved the intensive manual labor involved in breaking 'lakdi ghani' oil cake sheets into cattle feed. Designed and fabricated a dual-shaft electromechanical SPM featuring mild steel framing, spur gear train, belt-pulley reduction drive, and tungsten-carbide cutter tips powered by a 2HP motor.
+                </p>
+              </div>
+
+              <div class="space-y-3 pt-3 border-t border-white/10">
+                <div class="flex flex-wrap gap-1.5 font-mono text-[10px] sm:text-[11px]">
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Spur Gear Drive</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Tungsten Carbide Tip</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Dual Shaft Cutter</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">2HP Power</span>
+                </div>
+
+                <button class="project-details-btn w-full py-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 text-cyan-300 hover:text-cyan-200 border border-cyan-500/30 text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="maximize" class="w-3.5 h-3.5"></i>
+                  <span>Inspect Engineering Drawings & Calculations</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: MY TECHNICAL COMPETENCIES & SOFTWARE RADAR -->
+    <section id="skills" class="py-16 sm:py-24 relative bg-obsidian-950/70 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="space-y-2 mb-12 sm:mb-16">
+          <div class="font-mono text-xs text-cyan-400 tracking-widest uppercase flex items-center gap-2">
+            <i data-lucide="cpu" class="w-4 h-4"></i>
+            <span>My Technical Capabilities</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
+            Core Technical <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Competencies</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 max-w-xl">
+            A balanced synthesis of solid mechanical theory, CAD/CAM workbench proficiency, manufacturing process knowledge, and computational modeling.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
+          
+          <!-- Column 1: CAD / Modeling Software (Primary Toolkit) -->
+          <div class="lg:col-span-4 p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-xl space-y-6">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center border border-cyan-500/30 shrink-0">
+                <i data-lucide="box" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="text-base sm:text-lg font-bold text-white">3D CAD Software Suites</h3>
+                <span class="text-xs font-mono text-slate-400">Parametric Modeling & Drafting</span>
+              </div>
+            </div>
+
+            <!-- Software 1: SolidWorks -->
+            <div class="space-y-2">
+              <div class="flex justify-between font-mono text-xs">
+                <span class="text-white font-semibold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span> SolidWorks
+                </span>
+                <span class="text-cyan-400">95% Mastery</span>
+              </div>
+              <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-[95%]"></div>
+              </div>
+              <p class="text-[11px] text-slate-400">Part Modeling, Sheet Metal Bends, Complex Assemblies, 3D Annotations, GD&T Drawings.</p>
+            </div>
+
+            <!-- Software 2: CATIA V5 -->
+            <div class="space-y-2">
+              <div class="flex justify-between font-mono text-xs">
+                <span class="text-white font-semibold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-blue-400"></span> CATIA V5
+                </span>
+                <span class="text-blue-400">90% Mastery</span>
+              </div>
+              <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full w-[90%]"></div>
+              </div>
+              <p class="text-[11px] text-slate-400">Part Design, Generative Shape Design (Surfacing), Assembly Design, Drafting, Sketcher.</p>
+            </div>
+
+            <!-- Software 3: PTC Creo -->
+            <div class="space-y-2">
+              <div class="flex justify-between font-mono text-xs">
+                <span class="text-white font-semibold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span> PTC Creo
+                </span>
+                <span class="text-amber-400">85% Mastery</span>
+              </div>
+              <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full w-[85%]"></div>
+              </div>
+              <p class="text-[11px] text-slate-400">Parametric Feature Creation, Mechanism Assemblies, BOM generation, Tooling & Mold Cavity layouts.</p>
+            </div>
+
+          </div>
+
+          <!-- Column 2: Mechanical Engineering Fundamentals -->
+          <div class="lg:col-span-4 p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-xl space-y-6">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/30 shrink-0">
+                <i data-lucide="cog" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="text-base sm:text-lg font-bold text-white">Engineering Science</h3>
+                <span class="text-xs font-mono text-slate-400">Mechanics & Analysis</span>
+              </div>
+            </div>
+
+            <div class="space-y-3 font-mono text-xs">
+              <div class="p-3 rounded-xl bg-white/5 border border-white/5 space-y-1">
+                <div class="text-cyan-300 font-bold flex items-center gap-1.5">
+                  <i data-lucide="check" class="w-3.5 h-3.5"></i> Solid Mechanics & Strength
+                </div>
+                <p class="text-[11px] font-sans text-slate-400">Stress-strain tensors, beam deflection, shear force diagrams, torsion calculations, factor of safety.</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-white/5 border border-white/5 space-y-1">
+                <div class="text-amber-300 font-bold flex items-center gap-1.5">
+                  <i data-lucide="check" class="w-3.5 h-3.5"></i> Design Analysis & FEA Validation
+                </div>
+                <p class="text-[11px] font-sans text-slate-400">Structural integrity validation, load-bearing simulations, vibrational resonance, thermal deformation.</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-white/5 border border-white/5 space-y-1">
+                <div class="text-emerald-300 font-bold flex items-center gap-1.5">
+                  <i data-lucide="check" class="w-3.5 h-3.5"></i> Plastic Defect & Vacuum Forming
+                </div>
+                <p class="text-[11px] font-sans text-slate-400">Draft angles, uniform wall thicknesses, sink mark prevention, weld lines, HIPS thermoforming mold design.</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-white/5 border border-white/5 space-y-1">
+                <div class="text-blue-300 font-bold flex items-center gap-1.5">
+                  <i data-lucide="check" class="w-3.5 h-3.5"></i> Sheet Metal & SPM Layouts
+                </div>
+                <p class="text-[11px] font-sans text-slate-400">Bend allowances, K-factor calculation, notch relief, laser cut nests, electromechanical mounting frames.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Column 3: Programming, BOM & Toolchain -->
+          <div class="lg:col-span-4 p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-xl space-y-6">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30 shrink-0">
+                <i data-lucide="binary" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="text-base sm:text-lg font-bold text-white">Programming & Productivity</h3>
+                <span class="text-xs font-mono text-slate-400">Computation & Documentation</span>
+              </div>
+            </div>
+
+            <!-- Programming Badges -->
+            <div class="grid grid-cols-2 gap-2.5 sm:gap-3">
+              <div class="p-3.5 sm:p-4 rounded-2xl bg-white/5 border border-white/10 text-center space-y-1">
+                <div class="text-sm sm:text-base font-mono font-bold text-emerald-400">MATLAB</div>
+                <div class="text-[10px] text-slate-400">Kinematics & Math</div>
+              </div>
+              <div class="p-3.5 sm:p-4 rounded-2xl bg-white/5 border border-white/10 text-center space-y-1">
+                <div class="text-sm sm:text-base font-mono font-bold text-cyan-400">JAVA</div>
+                <div class="text-[10px] text-slate-400">Logic & Architecture</div>
+              </div>
+            </div>
+
+            <!-- BOM & Office Suite -->
+            <div class="space-y-2">
+              <h4 class="text-xs font-mono text-slate-300 uppercase tracking-wider">Productivity & Documentation</h4>
+              <div class="grid grid-cols-2 gap-2 font-mono text-xs">
+                <span class="p-2 sm:p-2.5 rounded-xl bg-white/5 border border-white/5 text-slate-300 flex items-center gap-1.5 truncate">
+                  <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5 text-emerald-400 shrink-0"></i> Excel BOM
+                </span>
+                <span class="p-2 sm:p-2.5 rounded-xl bg-white/5 border border-white/5 text-slate-300 flex items-center gap-1.5 truncate">
+                  <i data-lucide="presentation" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i> PowerPoint
+                </span>
+                <span class="p-2 sm:p-2.5 rounded-xl bg-white/5 border border-white/5 text-slate-300 flex items-center gap-1.5 truncate">
+                  <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-400 shrink-0"></i> Word Specs
+                </span>
+                <span class="p-2 sm:p-2.5 rounded-xl bg-white/5 border border-white/5 text-slate-300 flex items-center gap-1.5 truncate">
+                  <i data-lucide="mail" class="w-3.5 h-3.5 text-purple-400 shrink-0"></i> Outlook
+                </span>
+              </div>
+            </div>
+
+            <!-- Language Proficiency -->
+            <div class="pt-2 border-t border-white/10">
+              <div class="text-xs font-mono text-slate-400 mb-2">Multilingual Fluency:</div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono">English</span>
+                <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-mono">Hindi</span>
+                <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-mono">Marathi</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: WORK EXPERIENCE & CAREER TIMELINE -->
+    <section id="experience" class="py-16 sm:py-24 relative border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="space-y-2 mb-12 sm:mb-16">
+          <div class="font-mono text-xs text-cyan-400 tracking-widest uppercase flex items-center gap-2">
+            <i data-lucide="briefcase" class="w-4 h-4"></i>
+            <span>My Professional Trajectory</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
+            Industry <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">Work Experience</span>
+          </h2>
+        </div>
+
+        <div class="relative border-l-2 border-white/10 ml-3 sm:ml-6 md:ml-32 space-y-10 sm:space-y-12">
+          
+          <!-- Experience Item 1: Induce Design -->
+          <div class="relative pl-6 sm:pl-8 md:pl-12 group">
+            <!-- Timeline Marker Icon -->
+            <div class="absolute -left-[13px] sm:-left-[17px] top-1.5 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-obsidian-950 border-2 border-cyan-400 flex items-center justify-center group-hover:scale-125 transition-transform shadow-lg shadow-cyan-500/30">
+              <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-cyan-400 animate-ping"></div>
+            </div>
+
+            <!-- Date tag on left for desktop -->
+            <div class="hidden md:block absolute -left-36 top-1 text-right font-mono text-xs text-cyan-400 font-semibold w-28">
+              JAN 2024 — PRESENT
+            </div>
+
+            <div class="p-5 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-cyan-500/40 transition-all space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <span class="md:hidden inline-block px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-500/20 text-cyan-400 mb-1.5">
+                    JAN 2024 — PRESENT
+                  </span>
+                  <h3 class="text-lg sm:text-2xl font-display font-bold text-white">Product Development Engineer</h3>
+                  <div class="text-xs sm:text-sm font-mono text-cyan-400 mt-0.5">Induce Design • Pune, Maharashtra</div>
+                </div>
+                <span class="px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                  New Product Development (NPD)
+                </span>
+              </div>
+
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Spearheading physical product design, CAD development, and prototyping validation across industrial automation, RFID tracking hardware, and medical device enclosures.
+              </p>
+
+              <!-- Responsibilities Checklist -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 pt-2 font-mono text-xs text-slate-300">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                  <span>End-to-end NPD: concept to market-ready design</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                  <span>Special Purpose Machine (SPM) design & layouts</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                  <span>2D manufacturing drawings & 3D annotations</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                  <span>BOM creation, material selection & cost estimation</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                  <span>Aesthetic 3D rendering & Keyshot visualization</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                  <span>Plastic defect analysis & sheet metal fitment</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Experience Item 2: Internship at MSRTC -->
+          <div class="relative pl-6 sm:pl-8 md:pl-12 group">
+            <div class="absolute -left-[13px] sm:-left-[17px] top-1.5 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-obsidian-950 border-2 border-slate-500 flex items-center justify-center group-hover:scale-125 transition-transform">
+              <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-slate-400"></div>
+            </div>
+
+            <div class="hidden md:block absolute -left-36 top-1 text-right font-mono text-xs text-slate-400 font-semibold w-28">
+              INTERNSHIP
+            </div>
+
+            <div class="p-5 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-slate-400/40 transition-all space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <span class="md:hidden inline-block px-2 py-0.5 rounded text-[10px] font-mono bg-slate-500/20 text-slate-300 mb-1.5">
+                    INTERNSHIP PROGRAM
+                  </span>
+                  <h3 class="text-base sm:text-xl font-display font-bold text-white">Mechanical Systems & Maintenance Intern</h3>
+                  <div class="text-xs sm:text-sm font-mono text-slate-400 mt-0.5">MSRTC (Maharashtra State Road Transport Corp.)</div>
+                </div>
+                <span class="px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-semibold bg-white/5 text-slate-300 border border-white/10">
+                  Automotive Systems
+                </span>
+              </div>
+
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Completed hands-on automotive and industrial mechanical systems internship. Gained extensive practical exposure to heavy commercial vehicle chassis systems, transmission assemblies, preventative maintenance workflows, and quality inspection.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: ACADEMIC CREDENTIALS & ACHIEVEMENTS -->
+    <section id="education" class="py-16 sm:py-24 relative bg-obsidian-950/70 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          
+          <!-- Left: Academic Credentials Table -->
+          <div class="lg:col-span-6 space-y-6">
+            <div class="space-y-2">
+              <div class="font-mono text-xs text-amber-400 tracking-widest uppercase flex items-center gap-2">
+                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                <span>Formal Education</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-display font-bold text-white">Academic Credentials</h2>
+            </div>
+
+            <div class="space-y-4">
+              <!-- B.E. Mechanical -->
+              <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-cyan-950/30 to-white/[0.02] border border-cyan-500/30 space-y-2">
+                <div class="flex items-center justify-between font-mono text-xs">
+                  <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold">2018 — 2022</span>
+                  <span class="text-emerald-400 font-bold text-sm">8.40 CGPA</span>
+                </div>
+                <h3 class="text-base sm:text-lg font-bold text-white">Bachelor of Engineering (Mechanical)</h3>
+                <p class="text-xs text-slate-300 font-mono">DMIETR, Wardha • RTMNU (Nagpur University)</p>
+                <p class="text-[11px] text-slate-400">Core focus on Machine Design, CAD/CAM, Finite Element Analysis, Theory of Machines, and Fluid Mechanics.</p>
+              </div>
+
+              <!-- HSC -->
+              <div class="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+                <div class="flex items-center justify-between font-mono text-xs">
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-400">2018</span>
+                  <span class="text-slate-200 font-bold">64.00%</span>
+                </div>
+                <h3 class="text-sm sm:text-base font-bold text-white">Higher Secondary Certificate (HSC)</h3>
+                <p class="text-xs text-slate-400 font-mono">DCV Junior College, Seloo • Nagpur Divisional Board</p>
+              </div>
+
+              <!-- SSC -->
+              <div class="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+                <div class="flex items-center justify-between font-mono text-xs">
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-slate-400">2016</span>
+                  <span class="text-cyan-400 font-bold">86.80% Distinction</span>
+                </div>
+                <h3 class="text-sm sm:text-base font-bold text-white">Secondary School Certificate (SSC)</h3>
+                <p class="text-xs text-slate-400 font-mono">Deepchand Chaudhari Highschool, Seloo • Nagpur Board</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: Achievements & Honors -->
+          <div class="lg:col-span-6 space-y-6">
+            <div class="space-y-2">
+              <div class="font-mono text-xs text-cyan-400 tracking-widest uppercase flex items-center gap-2">
+                <i data-lucide="award" class="w-4 h-4"></i>
+                <span>Honors & Extracurriculars</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-display font-bold text-white">Engineering Achievements</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              
+              <div class="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-500/40 transition-all space-y-2">
+                <div class="w-8 sm:w-9 h-8 sm:h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
+                  <i data-lucide="trophy" class="w-4 h-4"></i>
+                </div>
+                <h4 class="text-xs sm:text-sm font-bold text-white">Winner: BLITZKRIEG (2019)</h4>
+                <p class="text-xs text-slate-400">Winner of National Level Technical PowerPoint Presentation contest amongst top engineering colleges.</p>
+              </div>
+
+              <div class="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-cyan-500/40 transition-all space-y-2">
+                <div class="w-8 sm:w-9 h-8 sm:h-9 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                  <i data-lucide="presentation" class="w-4 h-4"></i>
+                </div>
+                <h4 class="text-xs sm:text-sm font-bold text-white">Science Club Winner</h4>
+                <p class="text-xs text-slate-400">First Place in collegiate PPT presentation and 2nd Runner Up in collegiate Live Engineering Projects.</p>
+              </div>
+
+              <div class="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-emerald-500/40 transition-all space-y-2">
+                <div class="w-8 sm:w-9 h-8 sm:h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                  <i data-lucide="medal" class="w-4 h-4"></i>
+                </div>
+                <h4 class="text-xs sm:text-sm font-bold text-white">District Level Kabaddi Athlete</h4>
+                <p class="text-xs text-slate-400">Represented district in competitive sports, exemplifying high physical resilience, agility, and team strategy.</p>
+              </div>
+
+              <div class="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-purple-500/40 transition-all space-y-2">
+                <div class="w-8 sm:w-9 h-8 sm:h-9 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center">
+                  <i data-lucide="sparkles" class="w-4 h-4"></i>
+                </div>
+                <h4 class="text-xs sm:text-sm font-bold text-white">"The Get Set Go" Program</h4>
+                <p class="text-xs text-slate-400">Successfully graduated from intensive corporate readiness, leadership, and professional communication certification.</p>
+              </div>
+
+            </div>
+
+            <!-- Personality Strengths Bar -->
+            <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3">
+              <h4 class="font-mono text-xs text-slate-300 uppercase tracking-wider">Core Professional Strengths</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 sm:px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-mono">Enthusiastic R&D Mindset</span>
+                <span class="px-2.5 sm:px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-mono">Target Oriented</span>
+                <span class="px-2.5 sm:px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-mono">Disciplined CAD Standards</span>
+                <span class="px-2.5 sm:px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-mono">Teamwork & Fast Learner</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: CONTACT / HIRE ME -->
+    <section id="contact" class="py-16 sm:py-24 relative border-t border-white/5">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-400 font-mono text-xs shadow-inner">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>GET IN TOUCH • READY TO JOIN</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white tracking-tight">
+            Let's Connect — Open for <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-amber-400 to-cyan-300">Engineering Opportunities</span>
+          </h2>
+          <p class="text-sm sm:text-base text-slate-400">
+            I am actively seeking full-time roles in New Product Design (NPD), Mechanical CAD Design (SolidWorks / CATIA / Creo), and SPM Engineering in Pune, across India, or remote. Reach out directly via email, phone, or WhatsApp.
+          </p>
+        </div>
+
+        <!-- Direct Contact Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+          
+          <!-- Direct Email Card -->
+          <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-cyan-500/40 backdrop-blur-xl transition-all flex flex-col justify-between group">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center border border-cyan-500/20 group-hover:scale-105 transition-transform">
+                <i data-lucide="mail" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Direct Email</div>
+                <a href="mailto:prathameshkawle35@gmail.com" class="text-white hover:text-cyan-400 text-sm font-semibold transition-colors block mt-1 break-all">
+                  prathameshkawle35@gmail.com
+                </a>
+              </div>
+            </div>
+            <div class="pt-5 flex items-center justify-between border-t border-white/5 mt-4">
+              <a href="mailto:prathameshkawle35@gmail.com" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 font-semibold">
+                <span>Write Email</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <button class="copy-btn p-2 rounded-lg bg-white/5 hover:bg-cyan-500 hover:text-black text-slate-300 transition-all text-xs font-mono flex items-center gap-1" data-copy="prathameshkawle35@gmail.com" title="Copy Email">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span class="text-[10px]">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Phone & WhatsApp Card -->
+          <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-500/40 backdrop-blur-xl transition-all flex flex-col justify-between group">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20 group-hover:scale-105 transition-transform">
+                <i data-lucide="phone" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Phone / WhatsApp</div>
+                <a href="tel:+917709714073" class="text-white hover:text-amber-400 text-sm font-semibold transition-colors block mt-1">
+                  +91 7709714073
+                </a>
+              </div>
+            </div>
+            <div class="pt-5 flex items-center justify-between border-t border-white/5 mt-4">
+              <a href="https://wa.me/917709714073?text=Hi%20Prathamesh,%20I%20reviewed%20your%20engineering%20portfolio" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 font-semibold">
+                <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                <span>WhatsApp</span>
+              </a>
+              <button class="copy-btn p-2 rounded-lg bg-white/5 hover:bg-amber-500 hover:text-black text-slate-300 transition-all text-xs font-mono flex items-center gap-1" data-copy="+917709714073" title="Copy Phone Number">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span class="text-[10px]">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Location & Availability Card -->
+          <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-emerald-500/40 backdrop-blur-xl transition-all flex flex-col justify-between group">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-500/20 group-hover:scale-105 transition-transform">
+                <i data-lucide="map-pin" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Current Location</div>
+                <div class="text-white text-sm font-medium mt-1">
+                  Dange Chowk Thergaon, Pune, Maharashtra
+                </div>
+              </div>
+            </div>
+            <div class="pt-5 flex items-center justify-between border-t border-white/5 mt-4">
+              <span class="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>Immediate Joining</span>
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">ON-SITE / HYBRID</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Action Banner: Direct Resume & Call Actions -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-cyan-950/40 via-obsidian-900 to-amber-950/30 border border-white/15 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div class="space-y-1">
+            <h3 class="text-lg sm:text-xl font-display font-bold text-white">Interested in reviewing my full credentials?</h3>
+            <p class="text-xs sm:text-sm text-slate-400">Explore complete CAD project deliverables, engineering milestones, and formal resume.</p>
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-3 shrink-0">
+            <button id="contactResumeBtn" class="px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-cyan-400 to-blue-600 hover:opacity-95 text-slate-950 font-bold text-xs sm:text-sm tracking-wide shadow-lg shadow-cyan-500/25 flex items-center gap-2 transition-all">
+              <i data-lucide="file-text" class="w-4 h-4 text-slate-950"></i>
+              <span>View Engineering CV</span>
+            </button>
+            <a href="tel:+917709714073" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-semibold text-xs sm:text-sm flex items-center gap-2 transition-all">
+              <i data-lucide="phone-call" class="w-4 h-4 text-emerald-400"></i>
+              <span>Call +91 7709714073</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-obsidian-950 py-8 sm:py-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-center md:text-left">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-mono font-bold text-sm">
+          PK
+        </div>
+        <div class="text-xs text-slate-400 font-mono">
+          © <span id="currentYear">2026</span> Prathamesh Kawale • Mechanical & NPD Engineer Portfolio
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 font-mono text-xs text-slate-400">
+        <a href="#hero" class="hover:text-cyan-400 transition-colors">Top</a>
+        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="#lab3d" class="hover:text-cyan-400 transition-colors">3D Lab</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+      </div>
+
+      <button id="scrollToTopBtn" class="p-2.5 sm:p-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-cyan-400 transition-all" title="Scroll to top" aria-label="Scroll to top">
+        <i data-lucide="arrow-up" class="w-4 h-4"></i>
+      </button>
+
+    </div>
+  </footer>
+
+  <!-- MODAL 1: DETAILED PROJECT CASE STUDY & DRAWINGS INSPECTOR -->
+  <div id="projectModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 backdrop-blur-2xl bg-obsidian-950/80">
+    <div class="relative w-full max-w-4xl max-h-[92vh] bg-obsidian-900 border border-white/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+      
+      <!-- Modal Header -->
+      <div class="p-4 sm:p-6 border-b border-white/10 flex items-center justify-between bg-obsidian-950 shrink-0">
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="w-9 sm:w-10 h-9 sm:h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-mono font-bold text-xs sm:text-sm border border-cyan-500/20 shrink-0">
+            CAD
+          </div>
+          <div class="min-w-0">
+            <h3 class="text-base sm:text-xl font-display font-bold text-white truncate" id="modalTitle">Project Case Study</h3>
+            <span class="text-[11px] sm:text-xs font-mono text-cyan-400 truncate block" id="modalSubtitle">Engineering Specifications & Breakdown</span>
+          </div>
+        </div>
+        <button id="closeProjectModalBtn" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-all text-xl font-bold leading-none shrink-0" aria-label="Close modal">
+          &times;
+        </button>
+      </div>
+
+      <!-- Modal Body (Scrollable) -->
+      <div class="p-4 sm:p-8 overflow-y-auto space-y-5 sm:space-y-6 text-slate-300">
+        
+        <!-- Media Showcase -->
+        <div class="rounded-2xl overflow-hidden border border-white/10 bg-black/40 h-52 sm:h-80 relative flex items-center justify-center">
+          <img id="modalImg" src="" alt="Project CAD Drawing" class="w-full h-full object-contain" />
+        </div>
+
+        <!-- Problem Statement & Solution -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div class="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <h4 class="font-mono text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="help-circle" class="w-4 h-4"></i> Engineering Problem Statement
+            </h4>
+            <p class="text-xs leading-relaxed text-slate-300" id="modalProblemText"></p>
+          </div>
+
+          <div class="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <h4 class="font-mono text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="check-circle" class="w-4 h-4"></i> My Solution & Technical Outcome
+            </h4>
+            <p class="text-xs leading-relaxed text-slate-300" id="modalSolutionText"></p>
+          </div>
+        </div>
+
+        <!-- Key Highlights List -->
+        <div class="space-y-2.5">
+          <h4 class="font-mono text-xs font-bold text-slate-300 uppercase tracking-wider">My Key Engineering Deliverables & Workbenches</h4>
+          <ul id="modalHighlightsList" class="space-y-2 font-mono text-xs text-slate-300"></ul>
+        </div>
+
+        <!-- Technical BOM & Material Specs Table -->
+        <div class="space-y-2.5">
+          <h4 class="font-mono text-xs font-bold text-slate-300 uppercase tracking-wider">Bill of Materials (BOM) & Process Parameters</h4>
+          <div class="overflow-x-auto rounded-xl border border-white/10">
+            <table class="w-full font-mono text-xs text-left min-w-[480px]" id="modalSpecsTable">
+              <thead class="bg-white/5 text-slate-400 border-b border-white/10">
+                <tr>
+                  <th class="p-3">Parameter / Subsystem</th>
+                  <th class="p-3">Specification</th>
+                  <th class="p-3">Tooling / Method</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/5 text-slate-300" id="modalTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-3.5 sm:p-4 border-t border-white/10 bg-obsidian-950 flex items-center justify-end gap-3 font-mono text-xs shrink-0">
+        <button id="modalCloseActionBtn" class="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-all">Close Inspector</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL 2: FULL RESUME VIEWER & PRINT DIALOG -->
+  <div id="resumeModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 backdrop-blur-2xl bg-obsidian-950/85">
+    <div class="relative w-full max-w-3xl max-h-[92vh] bg-slate-900 border border-cyan-500/30 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+      
+      <!-- Resume Header -->
+      <div class="p-4 sm:p-5 border-b border-white/10 flex items-center justify-between bg-slate-950 shrink-0">
+        <div class="flex items-center gap-2.5 sm:gap-3">
+          <i data-lucide="file-text" class="w-4 sm:w-5 h-4 sm:h-5 text-cyan-400"></i>
+          <h3 class="text-sm sm:text-lg font-bold text-white font-display">Prathamesh Kawale — Engineering Resume</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="printResumeBtn" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-cyan-500/20 text-cyan-300 hover:bg-cyan-500 hover:text-black transition-all text-xs font-mono flex items-center gap-1.5">
+            <i data-lucide="printer" class="w-3.5 h-3.5"></i> <span class="hidden xs:inline">Print / </span>PDF
+          </button>
+          <button id="closeResumeModalBtn" class="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-all text-xl font-bold leading-none" aria-label="Close Resume">
+            &times;
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable Resume Content -->
+      <div class="p-5 sm:p-8 overflow-y-auto space-y-5 sm:space-y-6 text-slate-300 font-sans text-xs sm:text-sm bg-slate-900" id="printableResumeArea">
+        
+        <!-- Header -->
+        <div class="border-b border-white/10 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+          <div>
+            <h1 class="text-xl sm:text-2xl font-bold text-white font-display">Prathamesh Kawale</h1>
+            <p class="text-cyan-400 font-mono text-xs font-semibold">Mechanical & New Product Design Engineer</p>
+          </div>
+          <div class="font-mono text-xs text-slate-400 space-y-0.5">
+            <div>📞 +91 7709714073</div>
+            <div>✉️ prathameshkawle35@gmail.com</div>
+            <div>📍 Thergaon, Pune, Maharashtra</div>
+          </div>
+        </div>
+
+        <!-- Objective -->
+        <div class="space-y-1">
+          <h4 class="font-mono font-bold text-cyan-400 text-xs uppercase tracking-wider">Career Objective</h4>
+          <p class="text-slate-300 leading-relaxed">
+            To work in a firm with a professional work-driven environment where I can harness my talent and potential and apply my knowledge and skills, enabling me to grow both as an individual and professional to play a key role in fulfilling company goals.
+          </p>
+        </div>
+
+        <!-- Competencies -->
+        <div class="space-y-2">
+          <h4 class="font-mono font-bold text-cyan-400 text-xs uppercase tracking-wider">Core Technical Competencies</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+            <div>• <strong>Engineering:</strong> Solid Mechanics, Design Analysis, Strength of Materials</div>
+            <div>• <strong>Software:</strong> SolidWorks, CATIA V5, PTC Creo</div>
+            <div>• <strong>Programming:</strong> JAVA, MATLAB</div>
+            <div>• <strong>Office:</strong> Word, Excel (BOM), PowerPoint, Outlook</div>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="space-y-3">
+          <h4 class="font-mono font-bold text-cyan-400 text-xs uppercase tracking-wider">Working Experience</h4>
+          
+          <div class="space-y-2">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline font-mono gap-1">
+              <strong class="text-white text-sm">Product Development Engineer — Induce Design, Pune</strong>
+              <span class="text-cyan-400 text-xs">Jan 2024 – Present</span>
+            </div>
+            <ul class="list-disc list-inside space-y-1 text-slate-300 text-xs leading-relaxed">
+              <li>Product Designer with hands-on experience in prototyping and design R&D, focused on validating ideas through research, experimentation, and user-centered design.</li>
+              <li>Developed 3D Product Models and Technical drawings for multiple Special Purpose Machines (SPM).</li>
+              <li>Designed 8-drawer RFID diamond packet machine (4,800 capacity) solving RF spill & implementing central lock mechanisms.</li>
+              <li>Designed RFID Desktop Unit with FRP outer enclosure, gas spring door mechanism, and RF shielding coating.</li>
+              <li>Engineered Automated External Defibrillator (AED) enclosure in HIPS for vacuum forming manufacturing.</li>
+              <li>Expert in 2D manufacturing drawings, infofitment drawings, 3D annotations, and BOM management.</li>
+            </ul>
+          </div>
+
+          <div class="space-y-1 pt-2 border-t border-white/5">
+            <div class="flex justify-between items-baseline font-mono">
+              <strong class="text-white text-xs">Internship — MSRTC</strong>
+              <span class="text-slate-400 text-xs">Completed</span>
+            </div>
+            <p class="text-slate-400 text-xs">Practical workshop training on commercial automotive mechanics and preventative maintenance.</p>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="space-y-2">
+          <h4 class="font-mono font-bold text-cyan-400 text-xs uppercase tracking-wider">Academic Credentials</h4>
+          <div class="space-y-1 font-mono text-xs">
+            <div class="flex justify-between">
+              <span><strong>B.E. Mechanical Engineering</strong> (DMIETR / RTMNU)</span>
+              <span class="text-emerald-400 font-bold">8.40 CGPA (2022)</span>
+            </div>
+            <div class="flex justify-between text-slate-400">
+              <span>HSC (DCV Junior College, Seloo)</span>
+              <span>64.00% (2018)</span>
+            </div>
+            <div class="flex justify-between text-slate-400">
+              <span>SSC (Deepchand Chaudhari Highschool, Seloo)</span>
+              <span>86.80% (2016)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Capstone Project -->
+        <div class="space-y-1">
+          <h4 class="font-mono font-bold text-cyan-400 text-xs uppercase tracking-wider">Degree Capstone Project</h4>
+          <p class="text-slate-300 text-xs leading-relaxed">
+            <strong>Design & Fabrication of Oil Cake Cutter:</strong> Designed electromechanical SPM cutting oil cake sheets into cattle feed using mild steel frame, dual shafts, spur gears, and tungsten-carbide cutter powered by a 2HP single-phase motor.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div id="toastContainer" class="fixed bottom-6 right-4 sm:right-6 z-50 flex flex-col gap-2 pointer-events-none max-w-[90vw]"></div>
+
+  <!-- Custom Scripts -->
+  <script src="js/three-scene.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
